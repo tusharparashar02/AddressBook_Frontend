@@ -1,0 +1,49 @@
+<app-navbar></app-navbar>
+
+<div class="min-h-screen bg-gray-100 p-6">
+    <div class="container mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-6">Your Address Book</h2>
+
+        <div class="flex justify-end mb-4">
+            <button (click)="navigateToAddAddress()"
+                class="px-4 py-2 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700">
+                + Add New Address
+            </button>
+        </div>
+
+        <div class="overflow-x-auto bg-white shadow-lg rounded-lg">
+            <table class="min-w-full w-full border-collapse border border-gray-200">
+                <thead class="bg-gray-300 text-gray-700">
+                    <tr>
+                        <th class="border border-gray-300 px-6 py-3 text-left">Full Name</th>
+                        <th class="border border-gray-300 px-6 py-3 text-left">Email</th>
+                        <th class="border border-gray-300 px-6 py-3 text-left">Phone</th>
+                        <th class="border border-gray-300 px-6 py-3 text-left">Address</th>
+                        <th class="border border-gray-300 px-6 py-3 text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let address of addresses" class="hover:bg-gray-100">
+                        <td class="border border-gray-300 px-6 py-3">{{ address.fullName }}</td>
+                        <td class="border border-gray-300 px-6 py-3">{{ address.email }}</td>
+                        <td class="border border-gray-300 px-6 py-3">{{ address.phoneNumber }}</td>
+                        <td class="border border-gray-300 px-6 py-3">{{ address.address }}</td>
+                        <td class="border border-gray-300 px-6 py-3 flex justify-center space-x-2">
+                            <button (click)="editAddress(address.id)"
+                                class="px-4 py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600">
+                                Edit
+                            </button>
+                            <button (click)="deleteAddress(address.id)"
+                                class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600">
+                                Delete
+                            </button>
+                        </td>
+                    </tr>
+                    <tr *ngIf="addresses.length === 0">
+                        <td colspan="5" class="text-center py-4 text-gray-500">No addresses found.</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

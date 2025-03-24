@@ -1,0 +1,14 @@
+.input-field {
+    @apply w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400;
+}
+
+.btn-primary {
+    @apply bg-blue-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-blue-600 transition;
+}
+a svg {
+    transition: transform 0.2s ease-in-out;
+}
+
+a:hover svg {
+    transform: scale(1.1);
+}
